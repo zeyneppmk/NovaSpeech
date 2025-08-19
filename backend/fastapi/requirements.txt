@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+librosa
+soundfile
+numpy
+scipy
+httpx
+python-dotenv
+python-multipart
+aiofiles
+openai>=1.0.0
+huggingface_hub
+pyannote.audio

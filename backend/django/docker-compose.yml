@@ -1,0 +1,42 @@
+services:
+  db:  # 
+    image: postgres:14
+    container_name: backend_django-db
+    restart: always
+    environment:
+      POSTGRES_DB: whisperdatabase
+      POSTGRES_USER: blueuser
+      POSTGRES_PASSWORD: zeynephasret3455
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+  django:  
+    image: backend-img
+    container_name: backend_django-django
+    build:
+      context: "."
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+      - ./media:/code/media
+    ports:
+      - "8000:8000"
+    depends_on:
+      - fastapi  
+    networks:
+      - app-network
+  fastapi:
+    image: whisper-api-img-with-model  
+    container_name: backend_django-fastapi
+    ports:
+      - "8001:8000"
+    networks:
+      - app-network
+volumes:
+  pgdata:
+networks:
+  app-network:
+    driver: bridge

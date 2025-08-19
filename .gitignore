@@ -1,0 +1,48 @@
+# ------------------------------
+# Genel sistem/IDE dosyaları
+# ------------------------------
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ------------------------------
+# Ortak gizli dosyalar
+# ------------------------------
+.env
+*.local
+.vercel
+
+# ------------------------------
+# Node / Frontend (React, Vite)
+# ------------------------------
+node_modules/
+dist/
+dist-ssr/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ------------------------------
+# Python / Backend (Django + FastAPI)
+# ------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+venv/
+.env/
