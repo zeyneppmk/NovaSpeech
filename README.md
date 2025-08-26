@@ -33,20 +33,16 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
   - ☁️ **Cloudinary** – Dosya yükleme & yönetim
 
 - **AI Servisleri (Mikroservis)**
-
-  🐍 FastAPI– Hafif ve hızlı mikroservis mimarisi
-  
-  🎙️ Whisper – Ses → Metin dönüşümü (ASR)
-
-  🧑‍🤝‍🧑 pyannote.audio – Konuşmacı ayrımı (Diarization)
-
-  ✂️ GPT-3.5 Turbo – Otomatik özetleme
+  - 🐍 FastAPI– Hafif ve hızlı mikroservis mimarisi
+  - 🎙️ Whisper – Ses → Metin dönüşümü (ASR)
+  - 🧑‍🤝‍🧑 pyannote.audio – Konuşmacı ayrımı (Diarization)
+  - ✂️ GPT-3.5 Turbo – Otomatik özetleme
 
 - **Altyapı & DevOps**
+  - 🐳 Docker & Docker Compose – Servislerin kapsüllenmesi ve orkestrasyonu
+  - 🔄 RESTful API – Servisler arası iletişim
 
-  **🐳 Docker & Docker Compose** – Servislerin kapsüllenmesi ve orkestrasyonu
 
-  **🔄 RESTful API** – Servisler arası iletişim
-
+<img width="939" height="450" alt="image" src="https://github.com/user-attachments/assets/5b9f8600-5801-473b-a124-15aa8cbfa7b6" />
 
 
