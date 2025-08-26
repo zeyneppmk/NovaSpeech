@@ -45,4 +45,5 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 
 <img width="939" height="450" alt="image" src="https://github.com/user-attachments/assets/5b9f8600-5801-473b-a124-15aa8cbfa7b6" />
 
+<img width="1377" height="672" alt="image" src="https://github.com/user-attachments/assets/4dc95d6d-8b0b-43c5-9630-75de30de123b" />
 
