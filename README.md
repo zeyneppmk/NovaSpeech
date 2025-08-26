@@ -22,37 +22,37 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 
 ## 🛠️ Kullanılan Teknolojiler
 
-**Frontend**
+- **Frontend**
 
-**⚛️ React.js** – Bileşen tabanlı modern kullanıcı arayüzü
+- **⚛️ React.js** – Bileşen tabanlı modern kullanıcı arayüzü
 
-**🎨 Tailwind CSS** – Hızlı ve responsive tasarım
+- **🎨 Tailwind CSS** – Hızlı ve responsive tasarım
 
-**Backend (Core API)**
+- **Backend (Core API)**
 
-**🐍 Django REST Framework** – API geliştirme
+- **🐍 Django REST Framework** – API geliştirme
 
-**🗄️ PostgreSQ**L – İlişkisel veritabanı
+- **🗄️ PostgreSQ**L – İlişkisel veritabanı
 
-**🔐 JWT** – Kimlik doğrulama ve yetkilendirme
+- **🔐 JWT** – Kimlik doğrulama ve yetkilendirme
 
-**☁️ Cloudinary** – Dosya yükleme & yönetim
+- **☁️ Cloudinary** – Dosya yükleme & yönetim
 
-**AI Servisleri (Mikroservis)**
+- **AI Servisleri (Mikroservis)**
 
-**🐍 FastAPI** – Hafif ve hızlı mikroservis mimarisi
+- **🐍 FastAPI** – Hafif ve hızlı mikroservis mimarisi
 
-**🎙️ Whisper** – Ses → Metin dönüşümü (ASR)
+- **🎙️ Whisper** – Ses → Metin dönüşümü (ASR)
 
-**🧑‍🤝‍🧑 pyannote.audio** – Konuşmacı ayrımı (Diarization)
+- **🧑‍🤝‍🧑 pyannote.audio** – Konuşmacı ayrımı (Diarization)
 
-**✂️ GPT-3.5 Turbo** – Otomatik özetleme
+- **✂️ GPT-3.5 Turbo** – Otomatik özetleme
 
-**Altyapı & DevOps**
+- **Altyapı & DevOps**
 
-**🐳 Docker & Docker Compose** – Servislerin kapsüllenmesi ve orkestrasyonu
+- **🐳 Docker & Docker Compose** – Servislerin kapsüllenmesi ve orkestrasyonu
 
-**🔄 RESTful API** – Servisler arası iletişim
+- **🔄 RESTful API** – Servisler arası iletişim
 
 
 
