@@ -13,8 +13,34 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 
 ## 💥 Öne Çıkan Özellikler
 
-- Kullanımı Kolay Arayüz
-- Ses verilerinin Metne çevrilmesi
-- Ses verilerinin özetinin çıkarılması
+- Kullanıcı Dostu ve Modern Bir Platform 
+- Ses Verilerinin Metne Çevrilmesi
+- Ses Verilerinin Özetlenmesi
 - Konuşmacı Ayrımının(Speaker Diarization) Yapılması
+
+---
+
+## 🛠️ Kullanılan Teknolojiler
+
+**Frontend**
+
+⚛️ React.js – Bileşen tabanlı modern kullanıcı arayüzü
+
+🎨 Tailwind CSS – Hızlı ve responsive tasarım
+
+**Backend (Core API)**
+**🐍 Django REST Framework** – API geliştirme
+**🗄️ PostgreSQ**L – İlişkisel veritabanı
+**🔐 JWT** – Kimlik doğrulama ve yetkilendirme
+**☁️ Cloudinary** – Dosya yükleme & yönetim
+**AI Servisleri (Mikroservis)**
+**🐍 FastAPI** – Hafif ve hızlı mikroservis mimarisi
+**🎙️ Whisper** – Ses → Metin dönüşümü (ASR)
+**🧑‍🤝‍🧑 pyannote.audio** – Konuşmacı ayrımı (Diarization)
+**✂️ GPT-3.5 Turbo** – Otomatik özetleme
+**Altyapı & DevOps**
+**🐳 Docker & Docker Compose** – Servislerin kapsüllenmesi ve orkestrasyonu
+**🔄 RESTful API** – Servisler arası iletişim
+
+
 
