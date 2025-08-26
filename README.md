@@ -40,13 +40,13 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 
 - **AI Servisleri (Mikroservis)**
 
-  **🐍 FastAPI** – Hafif ve hızlı mikroservis mimarisi
+  🐍 FastAPI– Hafif ve hızlı mikroservis mimarisi
 
-  **🎙️ Whisper** – Ses → Metin dönüşümü (ASR)
+  🎙️ Whisper – Ses → Metin dönüşümü (ASR)
 
-  **🧑‍🤝‍🧑 pyannote.audio** – Konuşmacı ayrımı (Diarization)
+  🧑‍🤝‍🧑 pyannote.audio – Konuşmacı ayrımı (Diarization)
 
-  **✂️ GPT-3.5 Turbo** – Otomatik özetleme
+  ✂️ GPT-3.5 Turbo – Otomatik özetleme
 
 - **Altyapı & DevOps**
 
