@@ -34,9 +34,9 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 
   **🗄️ PostgreSQ**L – İlişkisel veritabanı
 
- **🔐 JWT** – Kimlik doğrulama ve yetkilendirme
+  **🔐 JWT** – Kimlik doğrulama ve yetkilendirme
 
- **☁️ Cloudinary** – Dosya yükleme & yönetim
+  **☁️ Cloudinary** – Dosya yükleme & yönetim
 
 - **AI Servisleri (Mikroservis)**
 
