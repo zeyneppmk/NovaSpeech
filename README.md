@@ -23,24 +23,19 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 ## 🛠️ Kullanılan Teknolojiler
 
 - **Frontend**
-
-  **⚛️ React.js** – Bileşen tabanlı modern kullanıcı arayüzü
-
-  **🎨 Tailwind CSS** – Hızlı ve responsive tasarım
+  - ⚛️ **React.js** – Bileşen tabanlı modern kullanıcı arayüzü  
+  - 🎨 **Tailwind CSS** – Hızlı ve responsive tasarım
 
 - **Backend (Core API)**
-
-  **🐍 Django REST Framework** – API geliştirme
-
-  **🗄️ PostgreSQ**L – İlişkisel veritabanı
-
-  **🔐 JWT** – Kimlik doğrulama ve yetkilendirme
-
-  **☁️ Cloudinary** – Dosya yükleme & yönetim
+  - 🐍 **Django REST Framework** – API geliştirme  
+  - 🗄️ **PostgreSQL** – İlişkisel veritabanı  
+  - 🔐 **JWT** – Kimlik doğrulama ve yetkilendirme  
+  - ☁️ **Cloudinary** – Dosya yükleme & yönetim
 
 - **AI Servisleri (Mikroservis)**
 
   🐍 FastAPI– Hafif ve hızlı mikroservis mimarisi
+  
   🎙️ Whisper – Ses → Metin dönüşümü (ASR)
 
   🧑‍🤝‍🧑 pyannote.audio – Konuşmacı ayrımı (Diarization)
