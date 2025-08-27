@@ -54,50 +54,48 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 
 **1) Depoyu klonla**
 
-```python
+```bash
 git clone https://github.com/<kullanici>/novaspeech.git
 cd novaspeech
 ```
 **2) Ortam değişkenlerini hazırla**
 
 Örnek dosyayı kopyala ve değerleri doldur:
-```python
+```bash
 cp .env.example .env
 cp .env.ai.example .env.ai
 ```
 
 Gerekli anahtarlar:
+- `DJANGO_SECRET`, `ALLOWED_HOSTS`
 
-DJANGO_SECRET, ALLOWED_HOSTS
+- `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`
 
-POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB
+- `CLOUDINARY_URL` (ör. cloudinary://<key>:<secret>@<cloud_name>)
 
-CLOUDINARY_URL (ör. cloudinary://<key>:<secret>@<cloud_name>)
+- `OPENAI_API_KEY` (özetleme için)
 
-OPENAI_API_KEY (özetleme için)
+- `PYANNOTE_TOKEN`(konuşmacı ayrımı için, gerekiyorsa)
 
-PYANNOTE_TOKEN (konuşmacı ayrımı için, gerekiyorsa)
+- `WHISPER_MODEL` (örn: small, base, medium)
 
-WHISPER_MODEL (örn: small, base, medium)
+**3) Servisleri başlat**
 
-3) Servisleri başlat
+```bash
 # Docker Compose v2:
 docker compose up -d --build
 
 # (Eski sürüm kullanıyorsan)
 # docker-compose up -d --build
 
-4) Durumu kontrol et
+**4) Durumu kontrol et**
 docker compose ps
 # veya: docker-compose ps
+```
 
-5) Servislere erişim
+**5) Servislere erişim**
 
 Frontend (React): http://localhost:3000
-
-Core API (Django REST): http://localhost:8000
-
-AI Service (FastAPI): http://localhost:8001
 
 İlk çalıştırmada migrasyonlar otomatik değilse:
 
