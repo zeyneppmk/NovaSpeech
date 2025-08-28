@@ -60,7 +60,7 @@ git clone https://github.com/<kullanici>/novaspeech.git
 cd novaspeech
 ```
 
-**2️⃣ Ortam Değişkenlerini Hazırla**
+**2️⃣  Konfigürasyon - Environment Veriables**
 Her servis için .env dosyalarını oluşturun (example.env şablonları mevcuttur):
 
 - **Django** → django/.env
@@ -190,16 +190,16 @@ docker-compose up --build
 
 ### 📖 Kullanım
 
-1. http://localhost:3000
+**1.** http://localhost:3000
  adresine gidin.
 
-2. Django admin panelinden kullanıcı oluşturun veya React arayüzünden kayıt olun.
+**2.** Django admin panelinden kullanıcı oluşturun veya React arayüzünden kayıt olun.
 
-3. Ses dosyası yükleyin.
+**3.** Ses dosyası yükleyin.
 
-4. Transkript, konuşmacı ayrımı ve özet sonuçlarını görüntüleyin.
+**4.** Transkript, konuşmacı ayrımı ve özet sonuçlarını görüntüleyin.
 
-5. Çıktıları PDF olarak indirin.
+**5.** Çıktıları PDF olarak indirin.
    
 
 ### 👨‍💻 Geliştirici Notları
@@ -211,15 +211,119 @@ docker-compose up --build
 - GPU destekli ortamda çalıştırmak isterseniz Dockerfile’ı CUDA tabanlı imajlarla güncelleyebilirsiniz.
 
 
+---
 
+## 🐛 Sorun Giderme
+❗ **Yaygın Sorunlar ve Çözümleri**
 
+### 1. Port Çakışması
+Projede kullanılan portlar:  
+- **Frontend (React):** `3000`  
+- **Django Backend:** `8000`  
+- **FastAPI:** `8001`  
+- **PostgreSQL:** `5432`
 
+Portların dolu olup olmadığını kontrol edin:
+```bash
+lsof -i :3000
+lsof -i :8000
+lsof -i :8001
+```
 
+Sorun varsa container’ları durdurup yeniden başlatın:
+```bash
+docker-compose down
+docker-compose up -d
+```
 
+### 2. JWT / SECRET_KEY Hatası
 
+- backend/.env dosyasında SECRET_KEY tanımlı olmalı.
 
+- .env dosyalarının doğru dizinlerde olduğundan emin olun.
 
+- Django’nun DEBUG ve ALLOWED_HOSTS ayarlarını kontrol edin.
 
+### 3. Frontend Bağlantı Sorunu
+
+Frontend ile backend arasında bağlantı sorunu varsa:
+```bash
+docker-compose restart frontend
+docker-compose logs frontend
+```
+
+.env dosyasında REACT_APP_API_URL=http://localhost:8000 şeklinde backend URL’ini kontrol edin.
+
+### 4. Build Hataları
+
+Docker cache sorun çıkardığında temiz build deneyin:
+```bash
+docker-compose down -v
+docker-compose build --no-cache
+docker-compose up -d
+```
+
+### 5. Model İndirme Sorunları
+
+Hugging Face modeli indirilemezse token’inizin geçerli olup olmadığını kontrol edin.
+
+Alternatif olarak container içinde elle indirme yapabilirsiniz:
+```bash
+docker exec -it backend_django-fastapi bash
+python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyannote/speaker-diarization-3.1', use_auth_token='HF_TOKENINIZ')"
+```
+
+---
+
+## 📊 Demo
+
+**🔊 Ses Yükleme ve Transkripsiyon**
+
+- MP3 / WAV dosyası yükleme
+
+- Whisper tabanlı yüksek doğruluklu transkripsiyon
+
+- JSON + PDF çıktı alma
+
+**👥 Konuşmacı Ayrımı**
+
+- Pyannote.audio tabanlı speaker diarization
+
+- Birden fazla konuşmacının otomatik ayırımı
+
+- Transkript üzerinde konuşmacı etiketleri
+
+**📝 Özetleme**
+
+- Uzun transkriptlerden otomatik özet çıkarma
+
+- GPT tabanlı metin işleme entegrasyonu
+
+- Kısa, orta ve detaylı özet seçenekleri
+
+**🔐 Kullanıcı Yönetimi**
+
+- JWT tabanlı authentication
+
+- Django admin paneli üzerinden kullanıcı yönetimi
+
+- Çoklu kullanıcı desteği
+
+**📈 Monitoring ve Loglama**
+
+- docker-compose logs -f ile gerçek zamanlı log takibi
+
+- Servis bazlı log kontrolü (Django, FastAPI, DB) 
+
+- Hata ayıklama için container içi erişim
+
+**📖 API Dokümantasyonu**
+
+- Django REST API: http://localhost:8000/api
+
+- FastAPI Docs: http://localhost:8001/docs
+
+- Swagger UI ile interaktif API testleri
 
 
 
