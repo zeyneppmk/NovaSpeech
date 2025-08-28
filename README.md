@@ -123,12 +123,13 @@ python manage.py createsuperuser
 
 ### 🔍 Servis Adresleri
 
-***Frontend (React)** → http://localhost:3000
+**Frontend (React)** → http://localhost:3000
 
 **Backend API (Django)** → http://localhost:8000
 
 **FastAPI Servisi** → http://localhost:8001/docs
 
+---
 
 ### 🛠️ Log ve Hata Kontrolleri
 
@@ -201,6 +202,7 @@ docker-compose up --build
 
 **5.** Çıktıları PDF olarak indirin.
    
+---
 
 ### 👨‍💻 Geliştirici Notları
 
@@ -276,8 +278,9 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 ---
 
 ## 📊 Demo
+🎯 Özellik Gösterimi
 
-**🔊 Ses Yükleme ve Transkripsiyon**
+**1. Ses Yükleme ve Transkripsiyon**
 
 - MP3 / WAV dosyası yükleme
 
@@ -285,7 +288,7 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 
 - JSON + PDF çıktı alma
 
-**👥 Konuşmacı Ayrımı**
+**2. Konuşmacı Ayrımı**
 
 - Pyannote.audio tabanlı speaker diarization
 
@@ -293,7 +296,7 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 
 - Transkript üzerinde konuşmacı etiketleri
 
-**📝 Özetleme**
+**3. Özetleme**
 
 - Uzun transkriptlerden otomatik özet çıkarma
 
@@ -301,7 +304,7 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 
 - Kısa, orta ve detaylı özet seçenekleri
 
-**🔐 Kullanıcı Yönetimi**
+**4. Kullanıcı Yönetimi**
 
 - JWT tabanlı authentication
 
@@ -309,7 +312,7 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 
 - Çoklu kullanıcı desteği
 
-**📈 Monitoring ve Loglama**
+**5. Monitoring ve Loglama**
 
 - docker-compose logs -f ile gerçek zamanlı log takibi
 
@@ -317,7 +320,7 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 
 - Hata ayıklama için container içi erişim
 
-**📖 API Dokümantasyonu**
+**6. API Dokümantasyonu**
 
 - Django REST API: http://localhost:8000/api
 
@@ -328,7 +331,7 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 
 ---
 
-⭐Bu proje iki kişi geliştirilmiştir beğendiyseniz yıldız vermeyi unutmayın!
+⭐ Bu proje ben ve grup arkadaşım(https://github.com/hasretbagg) tarafından geliştirilmiştir beğendiyseniz yıldız vermeyi unutmayın!
 
 
 
