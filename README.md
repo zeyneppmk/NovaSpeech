@@ -14,9 +14,11 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 ## 💥 Öne Çıkan Özellikler
 
 - Kullanıcı Dostu ve Modern Bir Platform 
-- Ses Verilerinin Metne Çevrilmesi
-- Ses Verilerinin Özetlenmesi
+- Ses Verilerinin Metne Çevrilmesi(Ses Transkripsiyonu)
+- Otomatik Özetlemme(GPT tabanlı model)
+- PDF Çıktısı
 - Konuşmacı Ayrımının(Speaker Diarization) Yapılması
+- Mikroservis Mimarisi (Django + FasAPI)
 
 ---
 
@@ -50,34 +52,156 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 
 ---
 
-## 🚀 Hızlı Başlangıç
+## 📦 Gereksinimler
 
 **1) Depoyu klonla**
+Projeyi çalıştırmadan önce aşağıdaki yazılımların yüklü olduğundan emin olun:
 
+- [Git](https://git-scm.com/downloads)  
+- [Docker](https://www.docker.com/products/docker-desktop)  
+- [Docker Compose](https://docs.docker.com/compose/install/)  
+- [Node.js (>= 18.x)](https://nodejs.org/) & npm
+
+---
+
+## 📥 Kurulum Adımları
+
+**1️⃣ Projeyi Klonlayın**
 ```bash
 git clone https://github.com/<kullanici>/novaspeech.git
 cd novaspeech
 ```
-**2) Ortam değişkenlerini hazırla**
 
-Örnek dosyayı kopyala ve değerleri doldur:
-```bash
-cp .env.example .env
-cp .env.ai.example .env.ai
+**2️⃣ Ortam Değişkenlerini Hazırla**
+Her servis için .env dosyalarını oluşturun (example.env şablonları mevcuttur):
+
+- **Django** → django/.env
+  
+```env
+CLOUDINARY_CLOUD_NAME=**************
+CLOUDINARY_API_KEY=****************
+CLOUDINARY_API_SECRET=***************
 ```
 
-Gerekli anahtarlar:
-- `DJANGO_SECRET`, `ALLOWED_HOSTS`
+- **FastAPI** → fastapi/.env
+  
+```env
+OPENAI_API_KEY=****************
+HUGGINGFACE_TOKEN=****************
+```
 
-- `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`
+- **React** → frontend/.env
 
-- `CLOUDINARY_URL` (ör. cloudinary://<key>:<secret>@<cloud_name>)
+```env
+VITE_API_URL=
+VITE_API_URL=
+```
 
-- `OPENAI_API_KEY` (özetleme için)
+---
 
-- `PYANNOTE_TOKEN`(konuşmacı ayrımı için, gerekiyorsa)
+**3️⃣ Docker Ağı Oluşturun**
 
-- `WHISPER_MODEL` (örn: small, base, medium)
+```bash
+docker network create app-network
+```
+
+---
+
+**4️⃣ FastAPI İmajını Çalıştırın**
+
+```bash
+cd whisper-docker
+docker build -t whisper-api-img .
+#Bu kedi projeme göre verildi fakat siz container isimlerini farklı kullanabilirsiniz
+docker run --env-file .env -p 8001:8000 --network app-network --name fastapi_container whisper-api-img
+```
+
+---
+
+**5️⃣ Django, PostgreSQL ve Frontend’i Çalıştırın**
+
+```bash
+#django projesi içndeyken
+cd ..
+docker-compose build
+docker-compose up
+```
+
+**6️⃣ Django Migrasyonları**
+
+```bash
+docker exec -it backend_django-django bash
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+---
+
+
+## 🔍 Servis Adresleri
+
+***Frontend (React)** → http://localhost:3000
+
+**Backend API (Django)** → http://localhost:8000
+
+**FastAPI Servisi** → http://localhost:8001/docs
+
+
+### 🛠️ Log ve Hata Kontrolleri
+
+Tüm servis logları:
+
+```bash
+docker-compose logs -f
+```
+
+FastAPI logları:
+
+```bash
+docker logs backend_django-fastapi
+```
+
+Django logları:
+
+```bash
+docker logs backend_django-django
+```
+
+Network doğrulama:
+
+```bash
+docker network inspect app-network
+```
+
+Django içinden FastAPI testi:
+
+```bash
+docker exec -it backend_django-django bash
+apt-get update && apt-get install -y curl
+curl http://fastapi:8000/docs
+curl http://fastapi:8000/transcribe/
+```
+
+---
+
+## 🤗 Hugging Face Modeli Yükleme
+
+FastAPI container içine girerek Pyannote modelini indirin:
+
+docker exec -it backend_django-fastapi bash
+python
+>>> from pyannote.audio import Pipeline
+>>> pipeline = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1", use_auth_token="HF_TOKENINIZ")
+>>> exit()
+
+
+Model indirildikten sonra imajı güncelleyin:
+
+docker commit backend_django-fastapi whisper-api-img
+docker-compose down
+docker-compose up --build
+
 
 **3) Servisleri başlat**
 
