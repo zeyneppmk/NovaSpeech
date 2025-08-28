@@ -107,9 +107,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'whisperdatabase',          # docker-compose içindeki isimle birebir aynı
-        'USER': 'blueuser',                 # docker-compose içindeki kullanıcı
-        'PASSWORD': 'zeynephasret3455',     # şifre aynı olmalı
+        'NAME': '****',          # docker-compose içindeki isimle birebir aynı
+        'USER': '***',                 # docker-compose içindeki kullanıcı
+        'PASSWORD': '****',     # şifre aynı olmalı
         'HOST': 'db',
         'PORT': '5432',
     }
