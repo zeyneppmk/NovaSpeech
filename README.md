@@ -326,7 +326,9 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 - Swagger UI ile interaktif API testleri
 
 
+---
 
+⭐Bu proje iki kişi geliştirilmiştir beğendiyseniz yıldız vermeyi unutmayın!
 
 
 
