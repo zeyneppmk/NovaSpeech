@@ -202,7 +202,6 @@ docker-compose up --build
 
 **5.** Çıktıları PDF olarak indirin.
    
----
 
 ### 👨‍💻 Geliştirici Notları
 
