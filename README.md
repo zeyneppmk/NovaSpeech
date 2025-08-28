@@ -52,18 +52,6 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 
 ---
 
-## 📦 Gereksinimler
-
-**1) Depoyu klonla**
-Projeyi çalıştırmadan önce aşağıdaki yazılımların yüklü olduğundan emin olun:
-
-- [Git](https://git-scm.com/downloads)  
-- [Docker](https://www.docker.com/products/docker-desktop)  
-- [Docker Compose](https://docs.docker.com/compose/install/)  
-- [Node.js (>= 18.x)](https://nodejs.org/) & npm
-
----
-
 ## 📥 Kurulum Adımları
 
 **1️⃣ Projeyi Klonlayın**
@@ -97,15 +85,11 @@ VITE_API_URL=
 VITE_API_URL=
 ```
 
----
-
 **3️⃣ Docker Ağı Oluşturun**
 
 ```bash
 docker network create app-network
 ```
-
----
 
 **4️⃣ FastAPI İmajını Çalıştırın**
 
@@ -115,8 +99,6 @@ docker build -t whisper-api-img .
 #Bu kedi projeme göre verildi fakat siz container isimlerini farklı kullanabilirsiniz
 docker run --env-file .env -p 8001:8000 --network app-network --name fastapi_container whisper-api-img
 ```
-
----
 
 **5️⃣ Django, PostgreSQL ve Frontend’i Çalıştırın**
 
@@ -139,7 +121,7 @@ python manage.py createsuperuser
 ---
 
 
-## 🔍 Servis Adresleri
+### 🔍 Servis Adresleri
 
 ***Frontend (React)** → http://localhost:3000
 
@@ -185,8 +167,9 @@ curl http://fastapi:8000/transcribe/
 
 ---
 
-## 🤗 Hugging Face Modeli Yükleme
+### 🤗 Hugging Face Modeli Yükleme
 
+```bash
 FastAPI container içine girerek Pyannote modelini indirin:
 
 docker exec -it backend_django-fastapi bash
@@ -194,36 +177,38 @@ python
 >>> from pyannote.audio import Pipeline
 >>> pipeline = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1", use_auth_token="HF_TOKENINIZ")
 >>> exit()
-
+```
 
 Model indirildikten sonra imajı güncelleyin:
-
+```bash
 docker commit backend_django-fastapi whisper-api-img
 docker-compose down
 docker-compose up --build
-
-
-**3) Servisleri başlat**
-
-```bash
-# Docker Compose v2:
-docker compose up -d --build
-
-# (Eski sürüm kullanıyorsan)
-# docker-compose up -d --build
-
-**4) Durumu kontrol et**
-docker compose ps
-# veya: docker-compose ps
 ```
 
-**5) Servislere erişim**
+--- 
 
-Frontend (React): http://localhost:3000
+### 📖 Kullanım
 
-İlk çalıştırmada migrasyonlar otomatik değilse:
+1. http://localhost:3000
+ adresine gidin.
 
-docker compose exec core-api python manage.py migrate
+2. Django admin panelinden kullanıcı oluşturun veya React arayüzünden kayıt olun.
+
+3. Ses dosyası yükleyin.
+
+4. Transkript, konuşmacı ayrımı ve özet sonuçlarını görüntüleyin.
+
+5. Çıktıları PDF olarak indirin.
+   
+
+### 👨‍💻 Geliştirici Notları
+
+- İlk çalıştırmada modeller indirileceği için biraz zaman alabilir.
+
+- Cloudinary için geçerli bir API Key gereklidir.
+
+- GPU destekli ortamda çalıştırmak isterseniz Dockerfile’ı CUDA tabanlı imajlarla güncelleyebilirsiniz.
 
 
 
