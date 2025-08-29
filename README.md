@@ -16,7 +16,7 @@ NovaSpeech uygulamasında ses transkripsiyonu için Whisper modeli, konuşmacı 
 
 - Kullanıcı Dostu ve Modern Bir Platform 
 - Ses Verilerinin Metne Çevrilmesi(Ses Transkripsiyonu)
-- Otomatik Özetlemme(GPT tabanlı model)
+- Otomatik Özetleme(GPT tabanlı model)
 - PDF Çıktısı
 - Konuşmacı Ayrımının(Speaker Diarization) Yapılması
 - Mikroservis Mimarisi (Django + FasAPI)
