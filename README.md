@@ -327,8 +327,10 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 
 - Swagger UI ile interaktif API testleri
 
-
 ---
+## ❓ Soru / İletişim
+
+Herhangi bir sorunuz varsa  [GitHub Issues](https://github.com/zeyneppmk/NovaSpeech/issues) bölümünden yeni bir issue açabilirsiniz.
 
 ⭐ Bu proje ben ve grup arkadaşım(https://github.com/hasretbagg) tarafından geliştirilmiştir beğendiyseniz yıldız vermeyi unutmayın!
 
