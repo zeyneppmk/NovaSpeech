@@ -218,7 +218,7 @@ docker-compose up --build
 ## 🐛 Sorun Giderme
 ❗ **Yaygın Sorunlar ve Çözümleri**
 
-### 1. Port Çakışması
+**1. Port Çakışması**
 Projede kullanılan portlar:  
 - **Frontend (React):** `3000`  
 - **Django Backend:** `8000`  
@@ -238,7 +238,7 @@ docker-compose down
 docker-compose up -d
 ```
 
-### 2. JWT / SECRET_KEY Hatası
+**2. JWT / SECRET_KEY Hatası**
 
 - backend/.env dosyasında SECRET_KEY tanımlı olmalı.
 
@@ -246,7 +246,7 @@ docker-compose up -d
 
 - Django’nun DEBUG ve ALLOWED_HOSTS ayarlarını kontrol edin.
 
-### 3. Frontend Bağlantı Sorunu
+**3. Frontend Bağlantı Sorunu**
 
 Frontend ile backend arasında bağlantı sorunu varsa:
 ```bash
@@ -256,7 +256,7 @@ docker-compose logs frontend
 
 .env dosyasında REACT_APP_API_URL=http://localhost:8000 şeklinde backend URL’ini kontrol edin.
 
-### 4. Build Hataları
+**4. Build Hataları**
 
 Docker cache sorun çıkardığında temiz build deneyin:
 ```bash
@@ -265,7 +265,7 @@ docker-compose build --no-cache
 docker-compose up -d
 ```
 
-### 5. Model İndirme Sorunları
+**5. Model İndirme Sorunları**
 
 Hugging Face modeli indirilemezse token’inizin geçerli olup olmadığını kontrol edin.
 
@@ -277,7 +277,7 @@ python -c "from pyannote.audio import Pipeline; Pipeline.from_pretrained('pyanno
 
 ---
 
-## 📊 Demo
+**📊 Demo**
 🎯 Özellik Gösterimi
 
 **1. Ses Yükleme ve Transkripsiyon**
